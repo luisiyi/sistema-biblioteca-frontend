@@ -14,27 +14,15 @@
       </tr>
     </thead>
     <tbody>
+      @for (book of books; track book.idBook) {
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>mdo</td>
-        <td>mdo</td>
+        <th scope="row">{{book.idBook}}</th>
+        <td>{{book.bookTitle}}</td>
+        <td>{{book.bookAuthor}}</td>
+        <td>{{book.bookAmmount}}</td>
+        <td>{{book.bookPrice}}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>fat</td>
-        <td>fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>John</td>
-        <td>Doe</td>
-        <td>social</td>
-        <td>social</td>
-      </tr>
+      }
     </tbody>
   </table>
 </div>
