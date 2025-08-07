@@ -1,7 +1,7 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Bookstore System</a>
+      <a class="navbar-brand" routerLink="books">Bookstore System</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -15,7 +15,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" routerLink="books" routerLinkActive="active">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/add-book">Add Book</a>
@@ -25,4 +25,6 @@
     </div>
   </nav>
 </div>
-<app-book-list/>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
