@@ -3,22 +3,22 @@
     <h3>Add Book</h3>
   </div>
 
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="title" class="form-label">Book title</label>
-      <input type="text" class="form-control" id="title" />
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="book.bookTitle"/>
     </div>
     <div class="mb-3">
       <label for="author" class="form-label">Book Author</label>
-      <input type="text" class="form-control" id="author" />
+      <input type="text" class="form-control" id="author" name="author" [(ngModel)]="book.bookAuthor"/>
     </div>
     <div class="mb-3">
       <label for="ammount" class="form-label">Book Ammount</label>
-      <input type="number" class="form-control" id="ammount" />
+      <input type="number" class="form-control" id="ammount" name="ammount" [(ngModel)]="book.bookAmmount"/>
     </div>
     <div class="mb-3">
       <label for="price" class="form-label">Book Price</label>
-      <input type="number" step="any" class="form-control" id="price" />
+      <input type="number" step="any" class="form-control" id="price" name="price" [(ngModel)]="book.bookPrice"/>
     </div>
     <div class="text-center">
       <button type="submit" class="btn btn-warning btn-sm me-3">Add</button>
