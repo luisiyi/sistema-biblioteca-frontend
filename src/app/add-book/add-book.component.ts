@@ -4,6 +4,7 @@ import { Book } from '../book';
 import { BookService } from '../book.service';
 import { Router } from '@angular/router';
 
+//ng g c add-book --skip-tests
 @Component({
   selector: 'app-add-book',
   standalone: true,

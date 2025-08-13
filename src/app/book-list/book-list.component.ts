@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Book } from '../book';
 import { BookService } from '../book.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
@@ -12,6 +13,7 @@ export class BookListComponent {
   books!: Book[];
 
   private bookService = inject(BookService)
+  private router = inject(Router);
 
   ngOnInit(){
     //load the books
@@ -29,6 +31,10 @@ export class BookListComponent {
         }
       }
     )
+  }
+
+  editBook(id: number){
+    this.router.navigate(['edit-book', id]);
   }
 
 }
