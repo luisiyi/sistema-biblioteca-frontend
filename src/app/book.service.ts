@@ -19,4 +19,8 @@ export class BookService {
   addBook(book: Book): Observable<Object>{
     return this.clientHttp.post(this.urlBase, book)
   }
+
+  getBookById(id: number){
+    return this.clientHttp.get<Book>(`${this.urlBase}/${id}`)
+  }
 }
