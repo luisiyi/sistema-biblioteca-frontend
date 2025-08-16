@@ -2,12 +2,13 @@ import { Component, inject } from '@angular/core';
 import { Book } from '../book';
 import { BookService } from '../book.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 //ng g c edit-book --skip-tests
 @Component({
   selector: 'app-edit-book',
   standalone: true,
-  imports: [],
+  imports: [FormsModule], //it allows the Two way data binding in Angular.
   templateUrl: './edit-book.component.html'
 })
 export class EditBookComponent {
@@ -23,6 +24,10 @@ export class EditBookComponent {
       next: (data) => this.book = data,
       error: (errors: any) => console.log(errors)
     })
+  }
+
+  onSubmit(){
+    //edit book
   }
 
 
