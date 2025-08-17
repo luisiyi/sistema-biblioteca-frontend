@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Book } from '../book';
 import { BookService } from '../book.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 //ng g c edit-book --skip-tests
@@ -16,10 +16,11 @@ export class EditBookComponent {
   id!: number;
 
   private bookService = inject(BookService);
-  private router = inject(ActivatedRoute);
+  private rout = inject(ActivatedRoute);
+  private router = inject(Router)
 
   ngOnInit(){
-    this.id = this.router.snapshot.params['id'];
+    this.id = this.rout.snapshot.params['id'];
     this.bookService.getBookById(this.id).subscribe({
       next: (data) => this.book = data,
       error: (errors: any) => console.log(errors)
@@ -28,7 +29,18 @@ export class EditBookComponent {
 
   onSubmit(){
     //edit book
+    this.saveBook();
   }
 
+  saveBook(){
+    this.bookService.editBook(this.id, this.book).subscribe({
+      next: (data) => this.goToBookList(),
+      error: (errors) => console.log(errors)
+    });
+  }
+
+  goToBookList(){
+    this.router.navigate(['/books'])
+  }
 
 }

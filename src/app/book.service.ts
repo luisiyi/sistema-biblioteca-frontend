@@ -23,4 +23,8 @@ export class BookService {
   getBookById(id: number){
     return this.clientHttp.get<Book>(`${this.urlBase}/${id}`)
   }
+
+  editBook(id: number, book: Book){
+    return this.clientHttp.put(`${this.urlBase}/${id}`, book)
+  }
 }
