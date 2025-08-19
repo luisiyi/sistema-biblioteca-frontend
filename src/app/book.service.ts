@@ -27,4 +27,8 @@ export class BookService {
   editBook(id: number, book: Book){
     return this.clientHttp.put(`${this.urlBase}/${id}`, book)
   }
+
+  deleteBook(id: number): Observable<Object>{
+    return this.clientHttp.delete(`${this.urlBase}/${id}`)
+  }
 }

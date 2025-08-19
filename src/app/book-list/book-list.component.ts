@@ -37,4 +37,11 @@ export class BookListComponent {
     this.router.navigate(['edit-book', id]);
   }
 
+  deleteBook(id: number){
+    this.bookService.deleteBook(id).subscribe({
+      next: (data) => this.getBooks(),
+      error: (errors) => console.log(errors)
+    })
+  }
+
 }
